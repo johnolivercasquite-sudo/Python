@@ -1,0 +1,15 @@
+Create a program that receives two lists and prints a new list of all elements that are in the first list but NOT in the second list.
+
+#my solution
+# Splits each input string into a list, using commas as separators
+lst1 = input().split(",")
+lst2 = input().split(",")
+# Write your code below
+lst3 = []
+for i in range(len(lst1)):
+    if lst1[i] in lst2:
+        pass
+    else:
+        lst3.append(lst1[i])
+
+print(lst3)
