@@ -1,0 +1,58 @@
+
+
+#my solution
+print("Welcome to the Daily Expense Tracker!")
+
+system_on = True
+expense_list = []
+total_expense=0
+average_expense=0
+
+print("\nMenu:")
+print("1. Add a new expense")
+print("2. View all expenses")
+print("3. Calculate total and average expense")
+print("4. Clear all expenses")
+print("5. Exit")
+
+while system_on:
+    #choice = input("1-5 from the menu")
+    choice = input()
+
+    if choice =='1':
+        expense_list.append(float(input()))
+        if expense_list:
+            print("Expense added successfully!")
+    elif choice == '2':
+        if not expense_list :
+            print("No expenses recorded yet.")
+        else:
+            print("Your expenses:")
+            for i in range (len(expense_list)):
+                #print(f"{i}. {expense_list[i]}")
+                print(f"{i+1}. {expense_list[i]}")
+    elif choice == '3':
+        if not expense_list:
+            print("No expenses recorded yet.")
+        else:
+            for i in range (len(expense_list)):
+                total_expense += expense_list[i]
+
+            average_expense = total_expense/len(expense_list)
+            
+            print(f"Total expense: {total_expense}")
+            print(f"Average expense: {average_expense}")
+    elif choice == '4':
+        expense_list.clear()
+        total_expense=0
+        average_expense=0
+        print("All expenses cleared.")
+    elif choice == '5':
+        system_on = False
+        print("Exiting the Daily Expense Tracker. Goodbye!")
+    
+    else:
+        print("Invalid choice. Please try again.")
+
+    
+
