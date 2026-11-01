@@ -1,0 +1,46 @@
+Create a function named find_occurrences that:
+
+Takes two string arguments: text and pattern
+Counts how many times pattern appears in text, including overlapping occurrences
+Returns a tuple containing:
+A boolean indicating if the pattern was found (True/False)
+The number of occurrences of the pattern
+A list of starting positions where the pattern was found
+For example, if text is "abababab" and pattern is "aba", your function should return (True, 3, [0, 2, 4]), since "aba" appears at positions 0, 2, and 4.
+
+If the pattern is not found, return (False, 0, []).
+
+About the pass keyword: You'll see pass in the default code. It's a Python keyword that means "do nothing" and is used as a placeholder when Python requires an indented code block (like inside a function). You should replace pass with your actual function code.
+
+
+#my solution
+def find_occurrences(text, pattern):
+    # Write your code here
+    pattern_check = pattern in text
+    text_lst = list(text)
+    pattern_lst = list(pattern)
+    text_patt_holder = []
+    occurence_count = 0
+    st_pos = []
+       
+    for i in range((len(text)-len(pattern))+1):         
+
+        for j in range(len(pattern)):
+            
+            text_patt_holder.append(text_lst[j])
+            #print(i,j,text_patt_holder)            
+            
+        hold_pop = text_lst.pop(0)
+        text_lst.append(hold_pop)
+        
+        if pattern_lst == text_patt_holder:
+            occurence_count+=1
+            st_pos.append(i)
+
+
+            
+        text_patt_holder.clear()     
+   
+    return pattern_check, occurence_count, st_pos
+ 
+# Read input
